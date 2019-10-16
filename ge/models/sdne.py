@@ -27,7 +27,7 @@ from tensorflow.python.keras.callbacks import History
 from tensorflow.python.keras.layers import Dense, Input
 from tensorflow.python.keras.models import Model
 from tensorflow.python.keras.regularizers import l1_l2
-print(tf.__version__)
+
 
 from ..utils import preprocess_nxgraph
 
@@ -54,6 +54,7 @@ def l_1st(alpha):
 
 
 def create_model(node_size, hidden_size=[256, 128], l1=1e-5, l2=1e-4):
+    print(tf.__version__)
     A = Input(shape=(node_size,))
     L = Input(shape=(None,))
     fc = A
