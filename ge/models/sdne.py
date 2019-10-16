@@ -27,6 +27,7 @@ from tensorflow.python.keras.callbacks import History
 from tensorflow.python.keras.layers import Dense, Input
 from tensorflow.python.keras.models import Model
 from tensorflow.python.keras.regularizers import l1_l2
+print(tf.__version__)
 
 from ..utils import preprocess_nxgraph
 
