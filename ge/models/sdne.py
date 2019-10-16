@@ -100,7 +100,9 @@ class SDNE(object):
 
         self.model, self.emb_model = create_model(self.node_size, hidden_size=self.hidden_size, l1=self.nu1,
                                                   l2=self.nu2)
-        self.model.compile(opt, [K.eval(l_2nd(self.beta)), K.eval(l_1st(self.alpha))]))
+        l2 = K.eval(l_2nd(self.beta))
+        l1 = K.eval(l_1st(self.alpha))
+        self.model.compile(opt, [l2, l1])
         self.get_embeddings()
 
     def train(self, batch_size=1024, epochs=1, initial_epoch=0, verbose=1):
