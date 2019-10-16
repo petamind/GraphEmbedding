@@ -89,7 +89,7 @@ class SDNE(object):
         self.beta = beta
         self.nu1 = nu1
         self.nu2 = nu2
-
+   
         self.A, self.L = self._create_A_L(
             self.graph, self.node2idx)  # Adj Matrix,L Matrix
         self.reset_model()
@@ -100,7 +100,7 @@ class SDNE(object):
 
         self.model, self.emb_model = create_model(self.node_size, hidden_size=self.hidden_size, l1=self.nu1,
                                                   l2=self.nu2)
-        self.model.compile(opt, K.eval([l_2nd(self.beta), l_1st(self.alpha)]))
+        self.model.compile(opt, [K.eval(l_2nd(self.beta)), K.eval(l_1st(self.alpha))]))
         self.get_embeddings()
 
     def train(self, batch_size=1024, epochs=1, initial_epoch=0, verbose=1):
